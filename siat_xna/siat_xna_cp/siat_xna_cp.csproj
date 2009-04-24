@@ -1,0 +1,753 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{BBB45A1B-7E60-470D-88FC-588573DF4500}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>siat</RootNamespace>
+    <AssemblyName>siat_xna_cp</AssemblyName>
+    <XnaFrameworkVersion>v2.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaCrossPlatformGroupID>dc2fa34e-b04c-4b57-85b6-32fb10d71841</XnaCrossPlatformGroupID>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SIAT_DEFAULT_CLOCKWISE_WINDING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\release\</OutputPath>
+    <DefineConstants>TRACE;SIAT_DEFAULT_CLOCKWISE_WINDING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86">
+      <Private>False</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL" />
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="pipeline\collada\elements\ColladaNameArray.cs" />
+    <Compile Include="pipeline\collada\elements\ColladaTechniqueCommonOfOptics.cs" />
+    <Compile Include="pipeline\collada\elements\ColladaVcount.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaVcount</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaChannelTarget.cs" />
+    <Compile Include="pipeline\collada\elements\_ColladaTarget.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaTarget</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaTransformElement.cs" />
+    <Compile Include="pipeline\Content.cs" />
+    <Compile Include="pipeline\PipelineUtilities.cs" />
+    <Compile Include="pipeline\Writers.cs" />
+    <Compile Include="pipeline\collada\ColladaContent.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaContent</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\ColladaDocument.cs">
+      <SubType>Code</SubType>
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaDocument</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\ColladaProcessor.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaProcessor</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaAccessor.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaAccessor</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaAnimation.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaAnimation</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaAnimationClip.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaAnimationClip</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaAsset.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaAsset</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaBindShapeMatrix.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaBindShapeMatrix</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaBoolArray.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaBoolArray</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaCamera.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaCamera</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaChannel.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaChannel</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaCOLLADA.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaCOLLADA</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaColor.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaColor</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaContributor.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaContributor</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaController.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaController</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaControlVertices.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaControlVertices</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaConvexMesh.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaConvexMesh</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaEvaluateScene.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaEvaluateScene</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaExtra.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaExtra</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaFloatArray.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaFloatArray</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaGeometry.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaGeometry</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaIdrefArray.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaIdrefArray</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaImage.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaImage</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaImager.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaImager</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\ColladaImporter.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaImporter</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaInputGroupA.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInputGroupA</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaInputGroupB.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInputGroupB</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaInstanceAnimation.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceAnimation</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaInstanceCamera.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceCamera</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaInstanceController.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceController</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaInstanceGeometry.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceGeometry</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaInstanceLight.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceLight</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaInstanceNode.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceNode</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaTechnique.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTechnique</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaTechniqueCommonOfLight.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTechniqueCommonOfLight</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaEffectOfProfileCOMMON.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaFixedFunctionBase</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaInstancePhysicsScene.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstancePhysicsScene</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaInstanceVisualScene.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceVisualScene</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaIntArray.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaIntArray</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaJoints.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaJoints</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLibraryAnimationClips.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryAnimationClips</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLibraryAnimations.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryAnimations</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLibraryCameras.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryCameras</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLibraryControllers.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryControllers</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaLibraryForceFields.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryForceFields</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLibraryGeometries.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryGeometries</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLibraryImages.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryImages</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLibraryLights.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryLights</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLibraryNodes.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryNodes</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaLibraryPhysicsMaterials.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryPhysicsMaterials</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaLibraryPhysicsModels.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryPhysicsModels</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaLibraryPhysicsScenes.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryPhysicsScenes</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLibraryVisualScenes.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryVisualScenes</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLight.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLight</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLines.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLines</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLinestrips.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLinestrips</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLookAt.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLookAt</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaMatrix.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaMatrix</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaMesh.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaMesh</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaMorph.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaMorph</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaNode.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaNode</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaOptics.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaOptics</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaOrthographic.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaOrthographic</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaParam.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaParam</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaPerspective.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaPerspective</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaPolygons.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaPolygons</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaPolylist.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaPolylist</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaPrimitives.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaPrimitives</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaRotate.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaRotate</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaSampler.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSampler</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaScale.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaScale</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaScene.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaScene</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaSkeleton.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSkeleton</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaSkew.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSkew</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaSkin.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSkin</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaSource.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSource</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaSpline.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSpline</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaTargets.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTargets</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaTechniqueCommonOfBindMaterial.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTechniqueCommonOfBindMaterial</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaTechniqueCommonOfSource.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTechniqueCommonOfSource</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaTranslate.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTranslate</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaTriangles.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTriangles</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaTrifans.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTrifans</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaTristrips.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTristrips</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaVertexWeights.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaVertexWeights</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaVertices.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaVertices</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaVisualScene.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaVisualScene</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaAlpha.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaAlpha</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaAnnotate.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaAnnotate</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaArgument.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaArgument</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaArray.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaArray</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaBindOfInstanceMaterial.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaBindOfInstanceMaterial</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaBindMaterial.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaBindMaterial</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaBindVertexInput.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaBindVertexInput</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaCode.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaCode</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaColorClear.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaColorClear</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaColorTarget.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaColorTarget</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaCompilerOptions.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaCompilerOptions</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaCompilerTarget.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaCompilerTarget</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaConnectParam.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaConnectParam</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaDepthClear.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaDepthClear</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaDepthTarget.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaDepthTarget</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaDraw.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaDraw</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaEffect.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaEffect</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaFloat.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaFloat</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaFloat2.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaFloat2</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaFloat3.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaFloat3</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaFormatHint.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaFormatHint</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaGenerator.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaGenerator</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaInclude.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInclude</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaInstanceEffect.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceEffect</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaInstanceMaterial.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceMaterial</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaLibraryEffects.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryEffects</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaLibraryMaterials.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaLibraryMaterials</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaMaterial.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaMaterial</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaModifier.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaModifier</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaName.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaName</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaNewparamOfProfileCOMMON.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaNewparamOfProfileCOMMON</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaNewparamOfProfileGLESandEffect.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaNewparamOfProfileGLESandEffect</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaPass.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaPass</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaProfileCG.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaProfileCG</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaProfileCOMMON.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaProfileCOMMON</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaProfileGLES.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaProfileGLES</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaProfileGLSL.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaProfileGLSL</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaRGB.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaRGB</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaSamplerFX.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSampler2D</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaSamplerState.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSamplerState</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaSemantic.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSemantic</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaSetparamOfInstanceEffect.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSetparam</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaShader.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaShader</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaStencilClear.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaStencilClear</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaStencilTarget.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaStencilTarget</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaSurfaceOfProfileCOMMON.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaSurfaceOfProfileCOMMON</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaTechniqueHint.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTechniqueHint</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaTechniqueFXOfProfileCOMMON.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTechniqueFXOfProfileCOMMON</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaTexcombiner.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTexcombiner</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaTexenv.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTexenv</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaTexturePipeline.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTexturePipeline</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaTextureUnit.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTextureUnit</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\ColladaUsertype.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaUsertype</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\_ColladaNewparam.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaNewparam</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\fx\_ColladaTechniqueFX.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaTechniqueFX</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaPhysicsScene.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaPhysicsScene</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaInstanceForceField.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstanceForceField</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaInstancePhysicsModel.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaInstancePhysicsModel</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\physics\ColladaTechniqueCommonOfPhysicsScene.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>ColladaTechniqueCommonOfPhysicsScene</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaArray.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaArray</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaDateTimeNode.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaDateTimeNode</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaElement.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaElement</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaElementWithId.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaElementWithId</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaElementWithIdAndName.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaElementWithIdAndName</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaElementWithSid.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaElementWithSid</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaElementWithSidAndName.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaElementWithSidAndName</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaGenericElement.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaGenericElement</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaInput.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaInput</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaInstance.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaInstance</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\ColladaLightData.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaLight</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaPrimitive.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaPrimitive</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaStringElement.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaStringElement</Name>
+    </Compile>
+    <Compile Include="pipeline\collada\elements\_ColladaTechnique.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>_ColladaTechnique</Name>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>AssemblyInfo</Name>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="impl\collada_effect.h" />
+    <None Include="impl\collada_effect_common.h" />
+    <None Include="impl\_collada_effect_technique.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\siat\siat.csproj">
+      <Project>{4ECC5A1B-7E60-4C0D-88FC-226575595107}</Project>
+      <Name>siat</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.Common.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.NestedContent.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

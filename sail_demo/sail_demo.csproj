@@ -1,0 +1,120 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{8AD28343-7D24-4129-9450-CAF473E109EE}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sail</RootNamespace>
+    <AssemblyName>sail_demo</AssemblyName>
+    <XnaFrameworkVersion>v2.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaCrossPlatformGroupID>cbb399a6-b901-4ed1-9e7c-ab66721c5931</XnaCrossPlatformGroupID>
+    <ApplicationIcon>sail_demo.ico</ApplicationIcon>
+    <StartupObject>sail.Program</StartupObject>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SIAT_DEFAULT_CLOCKWISE_WINDING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\release\</OutputPath>
+    <DefineConstants>TRACE;SIAT_DEFAULT_CLOCKWISE_WINDING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86">
+      <Private>False</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>AssemblyInfo</Name>
+    </Compile>
+    <Compile Include="src\Main.cs">
+      <SubType>Code</SubType>
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Main</Name>
+    </Compile>
+    <Compile Include="src\ThreePointLighting.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NestedContentProject Include="media\media.contentproj">
+      <Project>1bfdd4b1-3d98-464d-964e-70f0e7d7dcd0</Project>
+      <Visible>False</Visible>
+    </NestedContentProject>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\jz\jz_physics.csproj">
+      <Project>{5BEE189F-47A1-42A8-A297-1960221BE20D}</Project>
+      <Name>jz_physics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sail\sail.csproj">
+      <Project>{4EDD5A1B-7E60-4C0D-88FC-7765755F9107}</Project>
+      <Name>sail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\siat_xna\siat\siat.csproj">
+      <Project>{4ECC5A1B-7E60-4C0D-88FC-226575595107}</Project>
+      <Name>siat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\siat_xna\siat_xna_cp\siat_xna_cp.csproj">
+      <Project>{BBB45A1B-7E60-470D-88FC-588573DF4500}</Project>
+      <Name>siat_xna_cp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\siat_xna\siat_xna_engine\siat_xna_engine.csproj">
+      <Project>{4EB45A1B-7E60-4C0D-88FC-566573DF9107}</Project>
+      <Name>siat_xna_engine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="woman.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.Common.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.NestedContent.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

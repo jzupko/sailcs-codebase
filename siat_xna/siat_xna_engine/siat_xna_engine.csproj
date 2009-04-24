@@ -1,0 +1,181 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{4EB45A1B-7E60-4C0D-88FC-566573DF9107}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>siat</RootNamespace>
+    <AssemblyName>siat_xna_engine</AssemblyName>
+    <XnaFrameworkVersion>v2.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaCrossPlatformGroupID>dc2fa34e-b04c-4b57-85b6-32fb10d71841</XnaCrossPlatformGroupID>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SIAT_DEFAULT_CLOCKWISE_WINDING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\release\</OutputPath>
+    <DefineConstants>TRACE;SIAT_DEFAULT_CLOCKWISE_WINDING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86">
+      <Private>False</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache.cs" />
+    <Compile Include="Readers.cs" />
+    <Compile Include="render\ForwardPost.cs" />
+    <Compile Include="render\Deferred.cs" />
+    <Compile Include="render\DepthRasterizer.cs" />
+    <Compile Include="render\DeferredPost.cs" />
+    <Compile Include="render\ShadowMaps.cs" />
+    <Compile Include="scene\PhysicsSceneNode.cs" />
+    <Compile Include="scene\SkyNode.cs" />
+    <Compile Include="render\Animation.cs" />
+    <Compile Include="render\RenderRoot.cs" />
+    <Compile Include="render\SiatEffect.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>SiatEffect</Name>
+    </Compile>
+    <Compile Include="render\MeshPart.cs">
+      <SubType>Code</SubType>
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Geometry</Name>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>AssemblyInfo</Name>
+    </Compile>
+    <Compile Include="render\SiatMaterial.cs" />
+    <Compile Include="ResetPool.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Pool</Name>
+    </Compile>
+    <Compile Include="render\RenderNode.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>RenderNode</Name>
+    </Compile>
+    <Compile Include="scene\CameraFPSNode.cs" />
+    <Compile Include="scene\IPoseable.cs" />
+    <Compile Include="scene\OcclusionKdTree.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>kdTree</Name>
+    </Compile>
+    <Compile Include="render\Light.cs" />
+    <Compile Include="scene\AnimatedMeshPartNode.cs" />
+    <Compile Include="scene\CameraNode.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Camera</Name>
+    </Compile>
+    <Compile Include="scene\CameraEditingNode.cs" />
+    <Compile Include="scene\JointNode.cs" />
+    <Compile Include="scene\LightNode.cs" />
+    <Compile Include="scene\MeshPartNode.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>GeometryNode</Name>
+    </Compile>
+    <Compile Include="scene\MeshNode.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>MeshNode</Name>
+    </Compile>
+    <Compile Include="scene\PortalNode.cs" />
+    <Compile Include="scene\PoseableNode.cs" />
+    <Compile Include="scene\SceneNode.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>SceneNode</Name>
+    </Compile>
+    <Compile Include="Shared.cs" />
+    <Compile Include="SiatLib.cs" />
+    <Compile Include="scene\Cell.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Cell</Name>
+    </Compile>
+    <Compile Include="render\Portal.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Portal</Name>
+    </Compile>
+    <Compile Include="Siat.cs">
+      <SubType>Code</SubType>
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Siat</Name>
+    </Compile>
+    <Compile Include="Input.cs">
+      <XNAUseContentPipeline>false</XNAUseContentPipeline>
+      <Name>Input</Name>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <NestedContentProject Include="media\media.contentproj">
+      <Project>1bfdd4b1-3d98-464d-964e-70f0e7d7dcd0</Project>
+      <Visible>False</Visible>
+    </NestedContentProject>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\jz\jz_physics.csproj">
+      <Project>{5BEE189F-47A1-42A8-A297-1960221BE20D}</Project>
+      <Name>jz_physics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\siat\siat.csproj">
+      <Project>{4ECC5A1B-7E60-4C0D-88FC-226575595107}</Project>
+      <Name>siat</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.Common.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.NestedContent.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
